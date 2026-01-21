@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Sisters 🤍</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(#f4f1ee, #e3ddd7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Georgia", serif;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 380px;
+    }
+
+    h1 {
+      color: #6b4f4f;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    p {
+      color: #444;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    button {
+      background: #6b4f4f;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 25px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 14px;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #8a6a6a;
+    }
+
+    #messageBox {
+      display: none;
+      margin-top: 18px;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+      border-top: 1px solid #ddd;
+      padding-top: 12px;
+    }
+
+    .heart {
+      position: absolute;
+      color: #c28b8b;
+      font-size: 18px;
+      animation: float 6s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Hi My Sisters 🤍</h1>
+
+    <p>
+      little gift from your brother it feels cringe
+      but this is just for you guys, love ya.
+    </p>
+
+    <button onclick="showLove()">Click for Love 🤍</button>
+    <button onclick="toggleMessage()">Open Message 💌</button>
+
+    <div id="messageBox">
+      <p id="sisterMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    const messages = [
+      "I’m always grateful for you 🤍",
+      "You make my life feel steadier and warmer",
+      "Having you in my world means everything",
+      "My best people, always",
+      "Thank you for being my home"
+    ];
+
+    const sisterMessages = [
+      "Hoodo, Safa, and Marwa — even though we don’t say “I love you” that much, I wanted to make something special for you using what I’m learning right now. Thank you for everything. I love you.",
+      "I’m not always good with words, so I used code instead. This is my quiet way of saying thank you for always being there.",
+      "We might not say it every day, but I hope you always feel how much you mean to me.",
+      "I made this while learning and thinking about you three. Thank you for always having my back.",
+      "This isn’t perfect code, but the love behind it is real. Always."
+    ];
+
+    function showLove() {
+      alert(messages[Math.floor(Math.random() * messages.length)]);
+    }
+
+    function toggleMessage() {
+      const box = document.getElementById("messageBox");
+      const text = document.getElementById("sisterMessage");
+
+      if (box.style.display === "none") {
+        box.style.display = "block";
+        text.innerText =
+          sisterMessages[Math.floor(Math.random() * sisterMessages.length)];
+      } else {
+        box.style.display = "none";
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "🤍";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 700);
+  </script>
+
+</body>
+</html>
